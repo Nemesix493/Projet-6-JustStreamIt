@@ -1,0 +1,19 @@
+{
+  "name": "projet-6-juststreamit",
+  "version": "1.0.0",
+  "description": "Graphical interface for juststreamit",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nemesix493/Projet-6-JustStreamIt.git"
+  },
+  "author": "Kevin Verquerre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nemesix493/Projet-6-JustStreamIt/issues"
+  },
+  "homepage": "https://github.com/Nemesix493/Projet-6-JustStreamIt#readme"
+}
