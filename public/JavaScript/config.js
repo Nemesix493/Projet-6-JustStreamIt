@@ -1,0 +1,1 @@
+let api_addr = 'http://localhost:8000/api/v1/';
