@@ -107,6 +107,11 @@ function printBestMovie(){
     let description = document.createElement('p');
     description.innerHTML = receptionData.bestMovie.description;
     descriptionBlock.appendChild(description);
+    bestMovie.addEventListener('click', function(){
+        let body = document.getElementsByTagName('body')[0];
+        body.removeChild(receptionData.content);
+        loadAndDisplayMovie(receptionData.bestMovie.id);
+    })
 }
 
 function loadAndPrintBestMovie(){
