@@ -125,7 +125,7 @@ function createDescriptionBlock(movieData){
             'p',
             {
                 'className': 'movie-details__movie__description__rated',
-                'innerHTML': 'Ratio : ' + movieData.rated + ' &#128078;&#127996;&#128077;&#127996;'
+                'innerHTML': 'Catégorie : ' + movieData.rated
             }
         ));
     }
