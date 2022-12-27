@@ -33,7 +33,7 @@ function createDescription(movieData){
             'p',
             {
                 'className': 'movie-details__movie__description__description__text active',
-                'innerHTML': movieData.description
+                'innerHTML': 'Description : ' + movieData.description
             }
         );
         let showMore = createHTMLElement('a',{'innerHTML':' Afficher plus'});
@@ -53,7 +53,7 @@ function createDescription(movieData){
             'p',
             {
                 'className': 'movie-details__movie__description__description__text active',
-                'innerHTML': movieData.long_description
+                'innerHTML': 'Description : ' + movieData.long_description
             }
         ));
     }
@@ -69,40 +69,96 @@ function createDescriptionBlock(movieData){
             'innerHTML': movieData.title
         }
     ));
+    let inline = createHTMLElement(
+        'div',
+        {
+            "className": "movie-details__movie__description__inline",
+        }
+    );
+    let scores = createHTMLElement(
+        'div',
+        {
+            "className": "movie-details__movie__description__scores",
+        }
+    );
+    descriptionBlock.appendChild(inline);
+    descriptionBlock.appendChild(scores);
     let datePublished = movieData.date_published.split('-');
-    descriptionBlock.appendChild(createHTMLElement(
+    inline.appendChild(createHTMLElement(
         'p',
         {
             'className':'movie-details__movie__description__date',
-            'innerHTML': datePublished[2] + ' / ' + datePublished[1] + ' / ' + datePublished[0]
+            'innerHTML': 'Sortie le : ' + datePublished[2] + ' / ' + datePublished[1] + ' / ' + datePublished[0]
         }
     ));
     descriptionBlock.appendChild(createDescription(movieData));
     descriptionBlock.appendChild(createHTMLElement(
         'p',
         {
-            'className':'movie-details__movie__description__actors',
-            'innerHTML': movieData.actors.join(', ')
+            'className':'movie-details__movie__description__directors',
+            'innerHTML': 'Réalisation : ' + movieData.directors.join(', ')
         }
     ));
     descriptionBlock.appendChild(createHTMLElement(
         'p',
         {
-            'className': 'movie-details__movie__description__score',
-            'innerHTML': '&#128078;&#127996;&#128077;&#127996;</span>: ' + movieData.imdb_score
+            'className':'movie-details__movie__description__actors',
+            'innerHTML': 'Distribution : ' + movieData.actors.join(', ')
         }
     ));
+    inline.appendChild(createHTMLElement(
+        'p',
+        {
+            'className': 'movie-details__movie__description__duration',
+            'innerHTML': 'Durée : ' + ((movieData.duration - (movieData.duration % 60))/60).toString() + 'h' + (movieData.duration % 60).toString()
+        }
+    ));
+    scores.appendChild(createHTMLElement(
+        'p',
+        {
+            'className': 'movie-details__movie__description__score',
+            'innerHTML': 'IMDB : ' + movieData.imdb_score + ' &#11088;'
+        }
+    ));
+    if(movieData.rated != "Not rated or unkown rating"){
+        scores.appendChild(createHTMLElement(
+            'p',
+            {
+                'className': 'movie-details__movie__description__rated',
+                'innerHTML': 'Ratio : ' + movieData.rated + ' &#128078;&#127996;&#128077;&#127996;'
+            }
+        ));
+    }
     descriptionBlock.appendChild(createHTMLElement(
         'p',
         {
             'className': 'movie-details__movie__description__genre',
-            'innerHTML': movieData.genres.join(', ')
+            'innerHTML': 'Genre(s) : ' + movieData.genres.join(', ')
         }
     ));
+    descriptionBlock.appendChild(createHTMLElement(
+        'p',
+        {
+            'className': 'movie-details__movie__description__countrie',
+            'innerHTML': 'Pays : ' + movieData.countries.join(', ')
+        }
+    ));
+    if(movieData.worldwide_gross_income != null){
+        descriptionBlock.appendChild(createHTMLElement(
+            'p',
+            {
+                'className': 'movie-details__movie__description__box-office',
+                'innerHTML': 'Box-Office : ' + movieData.worldwide_gross_income + ' $',
+            }
+        ));
+    }
+
+
     return descriptionBlock;
 }
 
 function createContent(movieData){
+    console.log(movieData);
     let content = createHTMLElement('div', {'className':'movie-details__movie'});
     let poster = createHTMLElement(
         'img',

@@ -4,7 +4,11 @@ let configData = {
     'categoriesToPrint': [
         {
             'key':'Comedy',
-            'name':'Comedie'
+            'name':'Comédie'
+        },
+        {
+            'key':'Adventure',
+            'name':'Aventure'
         }
     ]
 }

@@ -275,11 +275,17 @@ body{
             &__title{
                 order: 0;
             }
-            &__date{
+            &__inline, &__scores{
+                max-width: 350px;
+                display: flex;
+                justify-content: space-between;
                 order: 1;
             }
+            &__date{
+                order: 0;
+            }
             &__score{
-                order: 2;
+                order: 0;
             }
             &__genre{
                 order: 3;
@@ -298,9 +304,19 @@ body{
                     display: inline;
                 }
             }
-            &__actors{
+            &__directors{
                 order: 5;
             }
+            &__actors{
+                order: 6;
+            }
+            &__countrie{
+                order: 7;
+            }
+            &__box-office{
+                order: 8;
+            }
+            
         }
     }
 }
