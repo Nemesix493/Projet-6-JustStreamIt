@@ -4,7 +4,8 @@
   "description": "Graphical interface for juststreamit",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./scss/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./scss/main.scss:./public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
   },
   "repository": {
     "type": "git",
